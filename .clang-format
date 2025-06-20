@@ -1,0 +1,58 @@
+# TheNorthernLights/.clang-format
+
+BasedOnStyle: Google
+Language:        Cpp
+Standard:        Cpp17
+
+# Indentation
+IndentWidth:     4
+TabWidth:        4
+UseTab:          Never
+BreakBeforeBraces: Allman
+
+# Column limits
+ColumnLimit:     100
+
+# Namespace + Includes
+NamespaceIndentation: All
+IncludeBlocks:   Preserve
+IncludeCategories:
+  - Regex:           '^<.*\.h>'
+    Priority:        1
+    SortPriority:    0
+  - Regex:           '^<.*>'
+    Priority:        2
+    SortPriority:    1
+  - Regex:           '^".*"'
+    Priority:        3
+    SortPriority:    2
+SortIncludes:     true
+
+# Constructor initializers
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+
+# Brace wrapping (style)
+BraceWrapping:
+  AfterClass:      true
+  AfterControlStatement: true
+  AfterEnum:       true
+  AfterFunction:   true
+  AfterNamespace:  true
+  AfterStruct:     true
+  BeforeCatch:     true
+  BeforeElse:      true
+  IndentBraces:    false
+
+# Formatting tweaks
+ReflowComments:   true
+AlignTrailingComments: true
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlwaysBreakTemplateDeclarations: Yes
+SpaceBeforeParens: ControlStatements
+
+# C++20 and forward compatibility
+SpacesInAngles: false
+Cpp11BracedListStyle: true

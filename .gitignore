@@ -1,0 +1,6 @@
+build/
+logs/
+.venv/
+*.pyc
+__pycache__/
+*.swp
