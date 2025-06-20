@@ -1,8 +1,9 @@
 # TheNorthernLights/.clang-format
+# find . -regex '.*\.\(cpp\|hpp\|h\)' -exec clang-format -i {} +
+#  clang-format -style=Google -i src/main.cpp       
 
 BasedOnStyle: Google
 Language:        Cpp
-Standard:        Cpp17
 
 # Indentation
 IndentWidth:     4

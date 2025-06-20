@@ -1,24 +1,35 @@
 #pragma once
 
-#include <string>
-#include <optional>
 #include <mutex>
+#include <optional>
 #include <queue>
+#include <string>
 
-struct Order {
-    enum class Type { Market, Limit, Stop };
-    enum class Side { Buy, Sell };
+struct Order
+{
+    enum class Type
+    {
+        Market,
+        Limit,
+        Stop
+    };
+    enum class Side
+    {
+        Buy,
+        Sell
+    };
 
     std::string symbol;
-    Type type;
-    Side side;
-    double quantity;
-    double price;  // Used for Limit and Stop orders
-    std::string order_id; // Unique ID assigned when order is sent
+    Type        type;
+    Side        side;
+    double      quantity;
+    double      price;     // Used for Limit and Stop orders
+    std::string order_id;  // Unique ID assigned when order is sent
 };
 
-class OrderRouter {
-public:
+class OrderRouter
+{
+   public:
     OrderRouter();
     ~OrderRouter();
 
@@ -31,7 +42,7 @@ public:
     // Polls and processes order status updates (stub for now)
     void poll_order_updates();
 
-private:
+   private:
     std::mutex mtx_;
 
     // Simulated order book to track sent orders (mock)

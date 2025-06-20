@@ -1,9 +1,10 @@
 #include <catch2/catch.hpp>
-#include "strategy/regime_switcher.hpp"
 #include "data/market_data.hpp"
+#include "strategy/regime_switcher.hpp"
 
-TEST_CASE("RegimeSwitcher loads profiles and detects regime", "[regime]") {
-    MarketData market_data;
+TEST_CASE("RegimeSwitcher loads profiles and detects regime", "[regime]")
+{
+    MarketData  market_data;
     std::string symbol = "XAUUSD";
 
     // Add mock OHLCV data for XAUUSD

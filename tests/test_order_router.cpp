@@ -2,7 +2,8 @@
 #include <catch2/catch.hpp>
 #include "execution/order_router.hpp"
 
-TEST_CASE("OrderRouter send_order returns unique IDs and stores orders", "[order_router]") {
+TEST_CASE("OrderRouter send_order returns unique IDs and stores orders", "[order_router]")
+{
     OrderRouter router;
 
     Order order1{"AAPL", Order::Type::Market, Order::Side::Buy, 100, 0.0, ""};
@@ -20,13 +21,15 @@ TEST_CASE("OrderRouter send_order returns unique IDs and stores orders", "[order
     REQUIRE(id2->rfind("ORD", 0) == 0);
 }
 
-TEST_CASE("OrderRouter cancel_order returns true", "[order_router]") {
+TEST_CASE("OrderRouter cancel_order returns true", "[order_router]")
+{
     OrderRouter router;
-    bool canceled = router.cancel_order("ORD000001");
+    bool        canceled = router.cancel_order("ORD000001");
     REQUIRE(canceled == true);
 }
 
-TEST_CASE("OrderRouter generate_order_id produces incrementing IDs", "[order_router]") {
+TEST_CASE("OrderRouter generate_order_id produces incrementing IDs", "[order_router]")
+{
     OrderRouter router;
 
     auto id1 = router.send_order(Order{"AAPL", Order::Type::Market, Order::Side::Buy, 10, 0.0, ""});
