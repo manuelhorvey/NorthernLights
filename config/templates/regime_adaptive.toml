@@ -1,0 +1,35 @@
+strategy_name = "RegimeAdaptive"
+enabled = true
+
+[core]
+volatility_source = "ATR"
+regime_switch_method = "threshold_cross"     # or HMM
+
+[regimes.bullish_trend]
+min_volatility = 0.03
+entry_bias = "long"
+entry_signal_strength = "high"
+stop_loss_pct = 0.01
+take_profit_pct = 0.025
+aggression = "aggressive"
+
+[regimes.range_bound]
+min_volatility = 0.01
+max_volatility = 0.025
+entry_bias = "both"
+entry_signal_strength = "medium"
+stop_loss_pct = 0.007
+take_profit_pct = 0.015
+aggression = "moderate"
+
+[regimes.bearish_trend]
+min_volatility = 0.03
+entry_bias = "short"
+entry_signal_strength = "high"
+stop_loss_pct = 0.012
+take_profit_pct = 0.03
+aggression = "cautious"
+
+[sizing]
+risk_per_trade = 0.015
+adjust_with_regime = true

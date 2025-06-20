@@ -1,0 +1,32 @@
+strategy_name = "MomentumScalp"
+enabled = true
+
+[timeframes]
+entry_tf = "1m"
+confirmation_tf = "3m"
+
+[entry_criteria]
+breakout_candle_range = 5         # Number of candles to detect breakout
+min_volume = 1_000_000
+momentum_threshold = 0.015        # e.g., % price move in recent bars
+use_liquidity_sweep = true
+min_body_to_wick_ratio = 1.8      # Strong candle requirement
+
+[execution]
+entry_delay_ms = 250
+slippage_tolerance = 0.0015
+cancel_after_ms = 800
+
+[exit_rules]
+stop_loss_pct = 0.007
+take_profit_pct = 0.012
+trailing_stop_pct = 0.005
+timeout_bars = 5
+
+[risk]
+risk_per_trade = 0.02
+max_position_pct = 0.25
+
+[filters]
+require_order_block = false
+exclude_low_volatility = true

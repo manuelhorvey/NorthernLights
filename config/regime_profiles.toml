@@ -1,0 +1,27 @@
+[default]
+name = "Neutral"
+volatility_threshold = 0.02
+volume_threshold = 1000000
+slippage_buffer = 0.001
+entry_aggression = "moderate"
+
+[low_volatility]
+name = "Sideways"
+volatility_threshold = 0.01
+volume_threshold = 500000
+slippage_buffer = 0.0005
+entry_aggression = "conservative"
+
+[high_volatility]
+name = "Breakout"
+volatility_threshold = 0.05
+volume_threshold = 2500000
+slippage_buffer = 0.002
+entry_aggression = "aggressive"
+
+[news_driven]
+name = "Event Spike"
+volatility_threshold = 0.07
+volume_threshold = 3000000
+slippage_buffer = 0.0035
+entry_aggression = "cautious"

@@ -1,0 +1,55 @@
+{
+  "broker": {
+    "name": "MockBroker",
+    "base_url": "https://api.mockbroker.com",
+    "routes": {
+      "place_order": "/v1/orders",
+      "cancel_order": "/v1/orders/cancel",
+      "get_balance": "/v1/account/balance",
+      "get_positions": "/v1/account/positions"
+    },
+    "auth": {
+      "token": "your-api-token-here",
+      "key": "your-api-key-here"
+    }
+  },
+
+  "market_data": {
+    "provider": "AlphaDataFeed",
+    "base_url": "https://data.alphafeed.io",
+    "endpoints": {
+      "tick_data": "/v1/ticks",
+      "ohlcv": "/v1/ohlcv",
+      "news": "/v1/news"
+    },
+    "params": {
+      "symbols": {
+        "ETH/USDT": {
+          "interval": "1m"
+        },
+        "BTC/USDT": {
+          "interval": "1m"
+        },
+        "XAU/USD": {
+          "interval": "5m"
+        }
+      }
+    }
+  },
+
+  "csv_data": {
+    "symbols": {
+      "XAUUSD": "/home/manuelhorveydaniel/Projects/TheNorthernLights/data/csv/XAUUSD_historical_data.csv",
+      "BTCUSD": "/home/manuelhorveydaniel/Projects/TheNorthernLights/data/csv/BTCUSD_historical_data.csv"
+    }
+  },
+
+  "internal_services": {
+    "logger": {
+      "endpoint": "http://localhost:8081/log"
+    },
+    "monitor": {
+      "web_ui": "http://localhost:3000/dashboard"
+    }
+  }
+}

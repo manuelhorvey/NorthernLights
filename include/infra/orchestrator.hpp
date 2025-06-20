@@ -2,32 +2,30 @@
 
 #include <memory>
 
-// Forward declarations for modular components
-class DataFeed;
+class MarketData;
 class FeatureEngine;
-class StrategyEngine;
+class AltData;
 class TradeExecutor;
+class RegimeSwitcher;
 
 class Orchestrator {
 public:
     Orchestrator();
     ~Orchestrator();
 
-    // Boot entry point
-    void run();
+    void run(); // Entry point
 
 private:
-    // Core steps in boot and strategy execution
-    void load_config();
-    void start_data_pipeline();
-    void run_strategy_loop();
-    void shutdown();
+    void load_config();         // Load strategy, risk, regime configs
+    void start_data_pipeline(); // Init market + alt data ingestion
+    void run_strategy_loop();   // Main tick-by-tick strategy execution
+    void shutdown();            // Cleanup
 
     bool is_running;
 
-    // Injected components (will be assigned in .cpp constructor or later)
-    std::unique_ptr<DataFeed> data_feed;
+    std::unique_ptr<MarketData> data_feed;
     std::unique_ptr<FeatureEngine> feature_engine;
-    std::unique_ptr<StrategyEngine> strategy_engine;
+    std::unique_ptr<AltData> alt_data;
     std::unique_ptr<TradeExecutor> trade_executor;
+    std::unique_ptr<RegimeSwitcher> regime_switcher;
 };
